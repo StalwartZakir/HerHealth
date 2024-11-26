@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerHealth - Menstrual Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="valentine-day-heart-3d-illustration-design.png" alt="HerHealth Logo" width="60px" height="60px"> 
+        </div>
+        <div class="header-title">
+        <h1>HerHealth</h1>
+        <nav>
+            <button onclick="showScreen('home')">Home</button>
+            <button onclick="showScreen('period-tracker')">Period Tracker</button>
+            <button onclick="showScreen('ovulation-tracker')">Ovulation Tracker</button>
+            <button onclick="showScreen('pregnancy-tracker')">Pregnancy Tracker</button>
+            <button onclick="showScreen('community-forum')">Community Forum</button>
+            <button onclick="showScreen('educational-resources')">Resources</button>
+        </nav>
+       
+    </header>
+
+    <main>
+        <!-- Home Screen -->
+        <section id="home" class="screen active">
+            <h2>Welcome to HerHealth</h2>
+            <p>Your personalized health companion.</p>
+            <div class="home-cards">
+                <div class="card">
+                    <h3>Next Period</h3>
+                    <p>Estimate: <span id="next-period">Not Set</span></p>
+                </div>
+                <div class="card">
+                    <h3>Today's Tips</h3>
+                    <p id="daily-tips">Stay hydrated and get enough rest!</p>
+                </div>
+            </div>
+             <!-- Input for Cycle Length -->
+        <div class="cycle-input">
+            <label for="cycle-length">Enter Your Cycle Length (in days):</label>
+            <input type="number" id="cycle-length" placeholder="e.g., 28">
+            <button onclick="calculateNextPeriod()">Calculate Next Period</button>
+        </div>
+
+    <!-- Display Next Period Date -->
+    <div class="next-period">
+        <h2>Your Next Period Starts On:</h2>
+        <p id="next-period-date">Not Calculated Yet</p>
+    </div>
+        </section>
+
+        <!-- Period Tracker -->
+        <section id="period-tracker" class="screen">
+            <h2>Period Tracker</h2>
+            <form id="period-form" onsubmit="event.preventDefault(); trackPeriod();">
+                <label for="start-date">Cycle Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="flow">Flow Intensity:</label>
+                <select id="flow">
+                    <option value="Light">Light</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Heavy">Heavy</option>
+                </select>
+                <button type="submit">Save</button>
+            </form>
+            <div id="cycle-info"></div>
+        </section>
+<!-- Chatbot Section -->
+<div class="chat-icon" id="chat-icon">
+    <img src="speech-bubble.png" alt="Chat Icon">
+</div>
+
+<div class="chat-box" id="chat-box">
+    <div class="chat-header">
+        <h3>Customer Assistant</h3>
+        <span class="close-chat" id="close-chat">&times;</span>
+    </div>
+    <div class="chat-body">
+        <p>Hello! How can I assist you today?</p>
+    </div>
+    <div class="chat-footer">
+        <div class="input-container">
+            <input type="text" placeholder="Type your message..." id="user-input">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+</div>
+<!-- Ovulation Tracker -->
+        <section id="ovulation-tracker" style="display: none;">
+            <div class="tracker-header">
+                <h1>Ovulation Tracker</h1>
+                <p>Predict your ovulation and track fertility details.</p>
+            </div>
+            <div class="tracker-content">
+                <label for="cycle-length">Enter Cycle Length (in days):</label>
+                <input type="number" id="cycle-length" placeholder="e.g., 28">
+                <button onclick="calculateOvulation()">Calculate Ovulation</button>
+                <p>Your predicted ovulation date is: <span id="ovulation-date">Not Calculated</span></p>
+            </div>
+        </section>
+        
+        <!-- Pregnancy Tracker -->
+        <section id="pregnancy-tracker" style="display: none;">
+            <div class="tracker-header">
+                <h1>Pregnancy Tracker</h1>
+                <p>Track your pregnancy milestones.</p>
+            </div>
+            <div class="tracker-content">
+                <label for="last-period">Enter Last Menstrual Period (LMP):</label>
+                <input type="date" id="last-period">
+                <button onclick="calculateDueDate()">Calculate Due Date</button>
+                <p>Your estimated due date is: <span id="due-date">Not Calculated</span></p>
+            </div>
+        </section>
+
+        <!-- Community Forum -->
+        <section id="community-forum" style="display: none;">
+            <div class="tracker-header">
+                <h1>Community Forum</h1>
+                <p>Connect and discuss anonymously with other users.</p>
+            </div>
+            <div class="forum-content">
+                <div class="chat-box" id="chat-box">
+                    <!-- Messages will appear here -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="message-input" placeholder="Type your message...">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Resources -->
+        <section id="educational-resources" style="display: none;">
+            <div class="tracker-header">
+                <h1>Educational Resources</h1>
+                <p>Explore health and wellness content.</p>
+            </div>
+            <div id="resources-list">
+                <p>Loading resources...</p>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 HerHealth | Your Health, Your Way</p>
+            <nav>
+                <ul>
+                    <li><a href="#home" onclick="showScreen('home')">Home</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#privacy-policy">Privacy Policy</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <p>Follow Us: 
+                <a href="#"><img src="https://img.freepik.com/free-psd/social-media-logo-design_23-2151296987.jpg?t=st=1732521413~exp=1732525013~hmac=3a2e8da459ea06d879ae9999d52205b45087a1981b6127dedcb424bb3e732c84&w=740" alt="Facebook"></a>
+                <a href="#"><img src="https://img.freepik.com/free-vector/instagram-vector-social-media-icon-7-june-2021-bangkok-thailand_53876-136728.jpg?t=st=1732521769~exp=1732525369~hmac=8a0af9a7e06f7a0bb01c7aa410ac3d8943203b86575c1678f57bb610d699f2d4&w=740" alt="Instagram"></a>
+                <a href="#"><img src="https://img.freepik.com/free-psd/social-media-logo-design_23-2151296981.jpg?t=st=1732522180~exp=1732525780~hmac=2078856f7b2edf815e381ccdc58a051202c6c6ac0efa47e768144fe07d530ba4&w=740" alt="Twitter"></a>
+            </p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
