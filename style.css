@@ -1,0 +1,478 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #444;
+    line-height: 1.6;
+}
+
+header {
+    background-image: url(portrait-african-american-woman-posing.png);
+    background-size: cover; 
+    background-position: center; 
+    background-color: #a5d8ff;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: auto;
+    list-style: none;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: #003e7e;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label, input, select, button {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+input, select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005f8a;
+}
+
+.home-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.card {
+    background: #e7f5ff;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+     /* Chatbot styles */
+       /* Chatbot Icon */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #0077b6;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.chat-icon img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Chatbox */
+.chat-box {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.chat-header {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chat-header h3 {
+    margin: 0;
+}
+
+.chat-header .close-chat {
+    cursor: pointer;
+}
+
+.chat-body {
+    padding: 20px;
+    height: 200px;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    gap:10px;
+}
+
+#user-input {
+    flex:1;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#send-button {
+    padding:12px;
+    background: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-footer button {
+    padding: 10px;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-message {
+    background-color: #e0f7fa;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    align-self: flex-end;
+    max-width: 80%;
+}
+
+.bot-message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    align-self: flex-start;
+    max-width: 80%;
+}
+
+@media (max-width: auto) {
+    .chat-box {
+        width: 90%;
+        right: 5%;
+        bottom: 20px;
+        max-height: 60%;
+    }
+
+    .chat-header, .chat-footer {
+        padding: 10px;
+    }
+
+    .chat-body {
+        height: auto; 
+        max-height: 50vh;
+    }
+
+    .chat-footer input {
+        padding: 8px;
+    }
+
+    .chat-footer button {
+        padding: 8px;
+    }
+}
+
+@media (max-width: auto) {
+    .chat-box {
+        width: 100%;
+        right: 0;
+        left: 0;
+        border-radius: 0;
+    }
+
+    .chat-body {
+        padding: 15px;
+        max-height: 50vh; 
+    }
+
+    .chat-header h3 {
+        font-size: 16px;
+    }
+
+    .chat-footer input, .chat-footer button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Footer Styling */
+footer {
+    background: #0077b6;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+footer nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer nav a:hover {
+    color: #80d1ff;
+}
+
+footer .footer-bottom {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+footer .footer-bottom a img {
+    width: 24px;
+    margin: 0 0.5rem;
+    filter: invert(1);
+    transition: transform 0.2s;
+}
+
+footer .footer-bottom a img:hover {
+    transform: scale(1.2);
+}
+
+/* Animations for Home Screen */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-cards .card {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.home-cards .card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.home-cards .card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 90%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .home-cards {
+        flex-direction: column;
+    }
+
+    footer .footer-content, footer .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer .footer-bottom a img {
+        width: 20px;
+    }
+}
+/* Home Page Styling */
+#home {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f4f7f6;
+}
+
+.home-header h1 {
+    color: #0077b6;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cycle-input {
+    margin-top: 2rem;
+    padding: center;
+    text-align: center;
+}
+
+.cycle-input input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.cycle-input button {
+    padding: 0.5rem 1rem;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cycle-input button:hover {
+    background-color: #005f7a;
+}
+
+.next-period h2 {
+    font-size: 1.5rem;
+    color: #0077b6;
+}
+
+.next-period p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00b4d8;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .cycle-input input {
+        width: 80%;
+    }
+
+    .cycle-input button {
+        width: 80%;
+    }
+}
+#community-forum .chat-box {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+
+#community-forum .chat-input {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#community-forum .chat-input input {
+    flex: 1;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+#community-forum .chat-input button {
+    padding: 0.5rem;
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
