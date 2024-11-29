@@ -449,7 +449,7 @@ footer .footer-bottom a img:hover {
         width: 80%;
     }
 }
-community-forum .chat-box {
+#community-forum .chat-box {
     height: 300px;
     overflow-y: scroll;
     border: 1px solid #ccc;
