@@ -111,8 +111,9 @@ button:hover {
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-     /* Chatbot styles */
-       /* Chatbot Icon */
+
+/* Chatbot styles */
+/* Chatbot Icon */
 .chat-icon {
     position: fixed;
     bottom: 20px;
@@ -181,14 +182,14 @@ button:hover {
 .input-container {
     display: flex;
     flex-direction: column;
-    width:100%;
-    gap:10px;
+    width: 100%;
+    gap: 10px;
 }
 
 #user-input {
-    flex:1;
-    padding:12px;
-    border:1px solid #ccc;
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     width: 100%;
@@ -196,7 +197,7 @@ button:hover {
 }
 
 #send-button {
-    padding:12px;
+    padding: 12px;
     background: #0077b6;
     color: white;
     border: none;
@@ -381,100 +382,5 @@ footer .footer-bottom a img:hover {
 
     footer .footer-content, footer .footer-bottom {
         flex-direction: column;
-        align-items: center;
     }
-
-    footer .footer-bottom a img {
-        width: 20px;
-    }
-}
-/* Home Page Styling */
-#home {
-    text-align: center;
-    padding: 2rem;
-    background-color: #f4f7f6;
-}
-
-.home-header h1 {
-    color: #0077b6;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.cycle-input {
-    margin-top: 2rem;
-    padding: center;
-    text-align: center;
-}
-
-.cycle-input input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    width: 100%;
-    max-width: 600px;
-}
-
-.cycle-input button {
-    padding: 0.5rem 1rem;
-    background-color: #0077b6;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.cycle-input button:hover {
-    background-color: #005f7a;
-}
-
-.next-period h2 {
-    font-size: 1.5rem;
-    color: #0077b6;
-}
-
-.next-period p {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #00b4d8;
-}
-
-/* For mobile devices */
-@media (max-width: 768px) {
-    .cycle-input input {
-        width: 80%;
-    }
-
-    .cycle-input button {
-        width: 80%;
-    }
-}
-#community-forum .chat-box {
-    height: 300px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    background-color: #f9f9f9;
-}
-
-#community-forum .chat-input {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-#community-forum .chat-input input {
-    flex: 1;
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-}
-
-#community-forum .chat-input button {
-    padding: 0.5rem;
-    background-color: #0077b6;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
 }
