@@ -11,6 +11,20 @@
         <div class="header-logo">
             <img src="valentine-day-heart-3d-illustration-design.png" alt="HerHealth Logo" width="60px" height="60px"> 
         </div>
+
+        <div class="header-right">
+            <button class="language-icon" id="languageMenuToggle">🌐</button>
+            <div class="language-menu" id="languageMenu">
+                <ul>
+                    <li data-lang="en">English</li>
+                    <li data-lang="yo">Yoruba</li>
+                    <li data-lang="ha">Hausa</li>
+                    <li data-lang="ig">Igbo</li>
+                    <li data-lang="fr">French</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="header-title">
         <h1>HerHealth</h1>
         <nav>
@@ -21,7 +35,7 @@
             <button onclick="showScreen('community-forum')">Community Forum</button>
             <button onclick="showScreen('educational-resources')">Resources</button>
         </nav>
-       
+              
     </header>
 
     <main>
@@ -40,17 +54,17 @@
                 </div>
             </div>
              <!-- Input for Cycle Length -->
-        <div class="cycle-input">
-            <label for="cycle-length">Enter Your Cycle Length (in days):</label>
-            <input type="number" id="cycle-length" placeholder="e.g., 28">
-            <button onclick="calculateNextPeriod()">Calculate Next Period</button>
-        </div>
+            <div class="cycle-input">
+                <label for="cycle-length">Enter Your Cycle Length (in days):</label>
+                <input type="number" id="cycle-length" placeholder="e.g., 28">
+                <button onclick="calculateNextPeriod()">Calculate Next Period</button>
+            </div>
 
-    <!-- Display Next Period Date -->
-    <div class="next-period">
-        <h2>Your Next Period Starts On:</h2>
-        <p id="next-period-date">Not Calculated Yet</p>
-    </div>
+        <!-- Display Next Period Date -->
+            <div class="next-period">
+                <h2>Your Next Period Starts On:</h2>
+                <p id="next-period-date">Not Calculated Yet</p>
+            </div>
         </section>
 
         <!-- Period Tracker -->
@@ -69,27 +83,27 @@
             </form>
             <div id="cycle-info"></div>
         </section>
-<!-- Chatbot Section -->
-<div class="chat-icon" id="chat-icon">
-    <img src="speech-bubble.png" alt="Chat Icon">
-</div>
+        <!-- Chatbot Section -->
+        <div class="chat-icon" id="chat-icon">
+            <img src="speech-bubble.png" alt="Chat Icon">
+        </div>
 
-<div class="chat-box" id="chat-box">
-    <div class="chat-header">
-        <h3>Customer Assistant</h3>
-        <span class="close-chat" id="close-chat">&times;</span>
-    </div>
-    <div class="chat-body">
-        <p>Hello! How can I assist you today?</p>
-    </div>
-    <div class="chat-footer">
+        <div class="chat-box" id="chat-box">
+         <div class="chat-header">
+            <h3>Customer Assistant</h3>
+            <span class="close-chat" id="close-chat">&times;</span>
+        </div>
+        <div class="chat-body">
+            <p>Hello! How can I assist you today?</p>
+        </div>
+            <div class="chat-footer">
         <div class="input-container">
             <input type="text" placeholder="Type your message..." id="user-input">
             <button id="send-button">Send</button>
         </div>
-    </div>
-</div>
-<!-- Ovulation Tracker -->
+        </div>
+        </div>
+        <!-- Ovulation Tracker -->
         <section id="ovulation-tracker" style="display: none;">
             <div class="tracker-header">
                 <h1>Ovulation Tracker</h1>
@@ -101,10 +115,10 @@
                 <button onclick="calculateOvulation()">Calculate Ovulation</button>
                 <p>Your predicted ovulation date is: <span id="ovulation-date">Not Calculated</span></p>
             </div>
-        </section>
+    </section>
         
         <!-- Pregnancy Tracker -->
-        <section id="pregnancy-tracker" style="display: none;">
+    <section id="pregnancy-tracker" style="display: none;">
             <div class="tracker-header">
                 <h1>Pregnancy Tracker</h1>
                 <p>Track your pregnancy milestones.</p>
@@ -115,36 +129,62 @@
                 <button onclick="calculateDueDate()">Calculate Due Date</button>
                 <p>Your estimated due date is: <span id="due-date">Not Calculated</span></p>
             </div>
-        </section>
+    </section>   
 
-            <!-- Community Forum -->
-        <section id="community-forum" style="display: none;">
-            <div class="tracker-header">
-                <h1>Community Forum</h1>
-                <p>Connect and discuss anonymously with other users.</p>
+    <!-- Community Forum -->
+    <section id="community-forum" class="screen">
+            <div class="forum-header">
+                <h2>Community Forum</h2>
+                <p>Engage in discussions anonymously while protecting your privacy.</p>
+                <button class="new-discussion-button">+ Start a New Discussion</button>
             </div>
-            <div class="forum-content">
-                <div class="chat-box" id="chat-box">
-                    <!-- Messages will appear here -->
+            <div class="forum-discussions">
+                <!-- Example Discussion Threads -->
+                <div class="discussion-thread">
+                    <h3>Discussion Title 1</h3>
+                    <p>Topic description goes here. Users can reply anonymously.</p>
+                    <button class="view-thread">View Replies</button>
                 </div>
-                <div class="chat-input">
-                    <input type="text" id="message-input" placeholder="Type your message...">
-                    <button onclick="sendMessage()">Send</button>
-                </div>
             </div>
-        </section>
-        
-        <!-- Resources -->
-        <section id="educational-resources" style="display: none;">
-            <div class="tracker-header">
-                <h1>Educational Resources</h1>
-                <p>Explore health and wellness content.</p>
+            <div class="new-discussion-form hidden">
+                <h3>Start a New Discussion</h3>
+                <textarea placeholder="Enter your topic..." class="discussion-input"></textarea>
+                <button class="submit-discussion">Post Discussion</button>
             </div>
-            <div id="resources-list">
-                <p>Loading resources...</p>
-            </div>
-        </section>
-        
+    </section>
+         <!--Resources-->
+    <section id="educational-resources" class="screen">
+    <div class="resources-header">
+        <h2>Educational Resources</h2>
+        <p>Explore resources on menstrual health, mental wellness, and more.</p>
+    </div>
+    <div class="resources-content">
+        <!-- Wellness Video -->
+        <div class="resource-item">
+            <h3>Wellness Video</h3>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/lkdbiUQHv6M" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <!-- Educational Materials -->
+        <div class="resource-item">
+            <h3>Educational Materials</h3>
+            <ul>
+                <li><a href="#">Understanding Menstrual Cycles</a></li>
+                <li><a href="#">Managing Stress and Mental Health</a></li>
+                <li><a href="#">Daily Wellness Tips</a></li>
+            </ul>
+        </div>
+        <!-- Mental Health and Wellness -->
+        <div class="resource-item">
+            <h3>Mental Health and Wellness</h3>
+            <p>Access curated tips and insights to maintain mental and physical health.</p>
+        </div>
+    </div>
+</section>
+
     </main>
 
     <footer>
