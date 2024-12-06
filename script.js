@@ -25,6 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.animationDelay = `${index * 0.2}s`;
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const languageMenuToggle = document.getElementById("languageMenuToggle");
+    const languageMenu = document.getElementById("languageMenu");
+
+    // Toggle menu visibility
+    languageMenuToggle.addEventListener("click", () => {
+        languageMenu.style.display =
+            languageMenu.style.display === "block" ? "none" : "block";
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+        if (!languageMenuToggle.contains(event.target) && !languageMenu.contains(event.target)) {
+            languageMenu.style.display = "none";
+        }
+    });
+
+    // Handle language selection
+    languageMenu.addEventListener("click", (event) => {
+        if (event.target.tagName === "LI") {
+            const selectedLanguage = event.target.getAttribute("data-lang");
+            alert(`Language changed to: ${selectedLanguage}`);
+            // Add functionality for language change here
+        }
+    });
+});
+
+
 function calculateNextPeriod() {
     const cycleLength = document.getElementById('cycle-length').value;
     const today = new Date();
@@ -79,20 +108,39 @@ function calculateDueDate() {
         alert('Please enter your last menstrual period date.');
     }
 }
-function sendMessage() {
-    const messageInput = document.getElementById('message-input');
-    const chatBox = document.getElementById('chat-box');
 
-    if (messageInput.value.trim() !== '') {
-        const newMessage = document.createElement('div');
-        newMessage.textContent = `Anonymous: ${messageInput.value}`;
-        newMessage.classList.add('message');
-        chatBox.appendChild(newMessage);
-        messageInput.value = '';
-    } else {
-        alert('Please enter a message.');
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const newDiscussionButton = document.querySelector('.new-discussion-button');
+    const newDiscussionForm = document.querySelector('.new-discussion-form');
+    const submitDiscussionButton = document.querySelector('.submit-discussion');
+    const forumDiscussions = document.querySelector('.forum-discussions');
+
+    // Toggle New Discussion Form
+    newDiscussionButton.addEventListener('click', () => {
+        newDiscussionForm.classList.toggle('visible');
+    });
+
+    // Submit New Discussion
+    submitDiscussionButton.addEventListener('click', () => {
+        const discussionInput = document.querySelector('.discussion-input').value.trim();
+        if (discussionInput) {
+            const newThread = document.createElement('div');
+            newThread.classList.add('discussion-thread');
+            newThread.innerHTML = `
+                <h3>${discussionInput}</h3>
+                <p>New discussion created anonymously.</p>
+                <button class="view-thread">View Replies</button>
+            `;
+            forumDiscussions.prepend(newThread); // Add new thread to the top
+            document.querySelector('.discussion-input').value = ''; // Clear input
+            newDiscussionForm.classList.remove('visible');
+        } else {
+            alert('Please enter a discussion topic.');
+        }
+    });
+});
+
+
 async function loadResources() {
     const resourcesList = document.getElementById('resources-list');
     resourcesList.innerHTML = 'Fetching articles...';
@@ -114,6 +162,19 @@ async function loadResources() {
         resourcesList.textContent = 'Failed to load resources.';
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const resourcesTab = document.querySelector('#educational-resources');
+    const menuButtons = document.querySelectorAll('nav button'); // Update selector as needed
+
+    menuButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (button.textContent === 'Resources') {
+                loadResources(); // Load resources when the Resources tab is clicked
+            }
+        });
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const chatIcon = document.getElementById('chat-icon');
     const chatBox = document.getElementById('chat-box');
